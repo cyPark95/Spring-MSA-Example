@@ -1,0 +1,11 @@
+spring:
+  jpa:
+    show-sql: true
+    #    database-platform: mysql
+    hibernate:
+      ddl-auto: none
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:4406/order?serverTimezone=UTC&characterEncoding=UTF-8
+    username: order-svc
+    password: order-pass
