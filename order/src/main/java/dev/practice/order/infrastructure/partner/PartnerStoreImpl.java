@@ -17,11 +17,11 @@ public class PartnerStoreImpl implements PartnerStore {
 
     @Override
     public Partner store(Partner partner) {
-        if (StringUtils.isEmpty(partner.getToken())) throw new RuntimeException();
-        if (StringUtils.isEmpty(partner.getName())) throw new RuntimeException();
-        if (StringUtils.isEmpty(partner.getBusinessNo())) throw new RuntimeException();
-        if (StringUtils.isEmpty(partner.getEmail())) throw new RuntimeException();
-        if (partner.getStatus() == null) throw new RuntimeException();
+        if (StringUtils.isEmpty(partner.getToken())) throw new InvalidParamException("partner.getToken()");
+        if (StringUtils.isEmpty(partner.getName())) throw new InvalidParamException("partner.getName()");
+        if (StringUtils.isEmpty(partner.getBusinessNo())) throw new InvalidParamException("partner.getBusinessNo()");
+        if (StringUtils.isEmpty(partner.getEmail())) throw new InvalidParamException("partner.getEmail()");
+        if (partner.getStatus() == null) throw new InvalidParamException("partner.getStatus()");
 
         return partnerRepository.save(partner);
     }
