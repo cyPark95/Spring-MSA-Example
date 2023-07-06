@@ -19,8 +19,8 @@ public class Partner extends AbstractEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String token;
-    private String name;
+    private String partnerToken;
+    private String partnerName;
     private String businessNo;
     private String email;
 
@@ -28,13 +28,13 @@ public class Partner extends AbstractEntity {
     private Status status;
 
     @Builder
-    public Partner(String name, String businessNo, String email) {
-        if (StringUtils.isEmpty(name)) throw new RuntimeException("empty partnerName");
+    public Partner(String partnerName, String businessNo, String email) {
+        if (StringUtils.isEmpty(partnerName)) throw new RuntimeException("empty partnerName");
         if (StringUtils.isEmpty(businessNo)) throw new RuntimeException("empty businessNo");
         if (StringUtils.isEmpty(email)) throw new RuntimeException("empty email");
 
-        this.token = TokenGenerator.randomCharacterWithPrefix(PREFIX_PARTNER);
-        this.name = name;
+        this.partnerToken = TokenGenerator.randomCharacterWithPrefix(PREFIX_PARTNER);
+        this.partnerName = partnerName;
         this.businessNo = businessNo;
         this.email = email;
         this.status = Status.ENABLE;
